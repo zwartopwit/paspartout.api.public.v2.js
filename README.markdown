@@ -36,6 +36,7 @@ Note that the length of the key can vary from site to site.
     });
 
 The first argument in the success callback includes the following fields:
+
 - title __(meta title)__
 - description __(meta description)__
 - subdomain __(e.g. subdomain.paspartout.com)__
