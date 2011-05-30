@@ -37,15 +37,15 @@ Note that the length of the key can vary from site to site.
 
 The first argument in the success callback includes the following fields:
 
-- title __(meta title)__
-- description __(meta description)__
-- subdomain __(e.g. subdomain.paspartout.com)__
+- title _(meta title)_
+- description _(meta description)_
+- subdomain _(e.g. subdomain.paspartout.com)_
 - host
 - url
-- icon __(the site icon in all available sizes: apple_touch_icon, favicon, original)__
-- page __(the homepage, including its children in case of a portfolio, lookbook, blog, news or shop page)__
-- menu __(array with pages and their basic fields: description, id, name, permaname, short_url, title, type, url)__
-- footer __(full Paspartout footer info)__
+- icon _(the site icon in all available sizes: apple_touch_icon, favicon, original)_
+- page _(the homepage, including its children in case of a portfolio, lookbook, blog, news or shop page)_
+- menu _(array with pages and their basic fields: description, id, name, permaname, short_url, title, type, url)_
+- footer _(full Paspartout footer info)_
 
 
 ### Load a Page
