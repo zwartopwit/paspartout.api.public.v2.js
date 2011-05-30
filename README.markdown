@@ -111,7 +111,7 @@ For page types portfolio, blog, news, lookbook and shop the 'includeChildren' op
       ...
     });
 
-Another optional option is 'includeAssets':
+Another optional option is 'includeAssets' to include images and videos:
 
     Paspartout.Page.load(page_id_or_permaname, {
       includeAssets: true,
@@ -144,6 +144,7 @@ The first argument in the success callback is an array with all active pages.
     });
 
 The first argument in the success callback is an array with all approved comments.
+
 Optionally you can provide the 'pageId' option to scope comments to a given page:
 
     Paspartout.Comment.all({
