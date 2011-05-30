@@ -35,7 +35,7 @@ Note that the length of the key can vary from site to site.
       }
     });
 
-The first argument in the success callback includes the following fields:
+The object passed as the first argument in the success callback the site object including the following fields:
 
 - title _(meta title)_
 - description _(meta description)_
@@ -59,10 +59,67 @@ The first argument in the success callback includes the following fields:
       }
     });
 
-The first argument in the success callback is an array with all active pages.
+The object passed as the first argument in the success callback the page object including the following (possible) fields:
 
+- type
+- id
+- name
+- title
+- permaname
+- url
+- short_url
+- created_at
+- updated_at
+- body
+- body_position
+- published_at
+- allow_comments
+- number_of_comments
+- categories
+- keywords
+- comments
+- blocks
+- children
+- price
+- big_shipment
+- sold
+- promotion_id
+- thumb
+- categories
+- collections
+- genders
+- materials
+- keywords
+- variations
+- images
 
-### Load all Pages
+The field sets vary for each page type.
+
+For the page types blog, news or post the option 'includeComments' option can be passed:
+
+    Paspartout.Page.load(page_id_or_permaname, {
+      includeComments: true,
+      
+      ...
+    });
+
+For page types portfolio, blog, news, lookbook and shop the 'includeChildren' option can be passed:
+
+    Paspartout.Page.load(page_id_or_permaname, {
+      includeChildren: true,
+      
+      ...
+    });
+
+Another optional option is 'includeAssets':
+
+    Paspartout.Page.load(page_id_or_permaname, {
+      includeAssets: true,
+      
+     ...
+    });
+
+### Load Pages
 
     Paspartout.Page.all({
       success: function(pages) {
@@ -74,6 +131,33 @@ The first argument in the success callback is an array with all active pages.
     });
 
 The first argument in the success callback is an array with all active pages.
+
+### Load Comments
+
+    Paspartout.Comment.all({
+      success: function(comments) {
+        ... your code ...
+      },
+      failure: function(error) {
+        console.error(error);
+      }
+    });
+
+The first argument in the success callback is an array with all approved comments.
+Optionally you can provide the 'pageId' option to scope comments to a given page:
+
+    Paspartout.Comment.all({
+      pageId: page_id_or_permaname,
+      
+      success: function(comments) {
+        ... your code ...
+      },
+      failure: function(error) {
+        console.error(error);
+      }
+    });
+
+By default a basic page object is included for each comment.
 
 
 ## Important
