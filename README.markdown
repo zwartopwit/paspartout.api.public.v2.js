@@ -205,7 +205,7 @@ Other options are:
   - comment: name, created_at, updated_at or random
   - image: title, position, color, created_at, updated_at or random
 - way _(the direction of the order; only asc and desc are possible)_
-- per_page _(the amount of records that are loaded; defaults to 30)_
+- per_page _(the amount of records that are loaded; defaults to 30 if no value found in the paspartout settings)_
 - page _(the page in pagination; for example if you have 40 projects and 30 per_page, project 32 will be on page 2)_
 
 
