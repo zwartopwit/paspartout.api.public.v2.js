@@ -168,7 +168,7 @@ Like comments you can optionally provide the 'pageId' option to scope images to 
 ### Include or exclude
 
 When loading a portfolio page for example its children (the projects) are included by default.
-You can prevent that bypassing the following option:
+You can prevent that by passing the following option:
 
     Paspartout.Page.load(page_id_or_permaname, {
       include: {
@@ -178,7 +178,7 @@ You can prevent that bypassing the following option:
       success...
     });
 
-When loading a blog post the comments are not included.
+When loading a blog post on the other hand, comments are not included.
 To include them:
 
     Paspartout.Page.load(page_id_or_permaname, {
@@ -190,7 +190,7 @@ To include them:
     });
 
 This also works when loading a blog page.
-the comments for every post will then be included.
+The comments for every post will then be included.
 
 
 ### Other options
