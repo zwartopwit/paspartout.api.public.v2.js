@@ -138,7 +138,7 @@ Optionally you can provide the 'pageId' option to scope comments to a given page
 By default a basic page object is included for each comment.
 
 
-### Load Comments
+### Load Images
 
     Paspartout.Image.all({
       success: function(comments) {
