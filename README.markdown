@@ -1,4 +1,4 @@
-# paspartout.api.public.v1.js
+# paspartout.api.public.v1.js 0.0.2
 
 ## What is it?
 Official JavaScript wrapper for the Paspartout.com public API.
@@ -64,7 +64,6 @@ The object passed as the first argument in the success callback the page object 
 - type
 - id
 - name
-- title
 - permaname
 - url
 - short_url
@@ -198,7 +197,7 @@ the comments for every post will then be included.
 
 Other options are:
 
-- order: <i>(the position order in which the records are loaded; options per record type are list below)</i>
+- order: <i>(the position order in which the records are loaded; options per record type are listed below)</i>
   - project: name, position, created_at, updated_at or random
   - post: name, created_at, updated_at, published_at or random
   - product: name, position, price, created_at, updated_at or random

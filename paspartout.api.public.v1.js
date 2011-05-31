@@ -2,7 +2,7 @@
  * Paspartout.com public API wrapper for JavaScript 0.0.2
  *
  * Copyright (c) 2011 Wout Fierens
- * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.
+ * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license
  */
 var Paspartout = Paspartout || {
   Api:    {},
