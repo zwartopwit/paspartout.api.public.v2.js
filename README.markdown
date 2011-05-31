@@ -50,7 +50,7 @@ The object passed as the first argument in the success callback the site object 
 
 ### Load a Page
 
-    Paspartout.Page.load(id, {
+    Paspartout.Page.load(page_id_or_permaname, {
       success: function(page) {
         ... your code ...
       },
@@ -95,29 +95,6 @@ The object passed as the first argument in the success callback the page object 
 
 The field sets vary for each page type.
 
-For the page types blog, news or post the option 'includeComments' option can be passed:
-
-    Paspartout.Page.load(page_id_or_permaname, {
-      includeComments: true,
-      
-      ...
-    });
-
-For page types portfolio, blog, news, lookbook and shop the 'includeChildren' option can be passed:
-
-    Paspartout.Page.load(page_id_or_permaname, {
-      includeChildren: true,
-      
-      ...
-    });
-
-Another optional option is 'includeAssets' to include images and videos:
-
-    Paspartout.Page.load(page_id_or_permaname, {
-      includeAssets: true,
-      
-     ...
-    });
 
 ### Load Pages
 
@@ -132,6 +109,7 @@ Another optional option is 'includeAssets' to include images and videos:
 
 The first argument in the success callback is an array with all active pages.
 
+
 ### Load Comments
 
     Paspartout.Comment.all({
@@ -143,7 +121,7 @@ The first argument in the success callback is an array with all active pages.
       }
     });
 
-The first argument in the success callback is an array with all approved comments.
+The first argument in the success callback is an array with approved comments.
 
 Optionally you can provide the 'pageId' option to scope comments to a given page:
 
@@ -159,6 +137,76 @@ Optionally you can provide the 'pageId' option to scope comments to a given page
     });
 
 By default a basic page object is included for each comment.
+
+
+### Load Comments
+
+    Paspartout.Image.all({
+      success: function(comments) {
+        ... your code ...
+      },
+      failure: function(error) {
+        console.error(error);
+      }
+    });
+
+The first argument in the success callback is an array with images.
+
+Like comments you can optionally provide the 'pageId' option to scope images to a given page:
+
+    Paspartout.Comment.all({
+      pageId: page_id_or_permaname,
+      
+      success: function(comments) {
+        ... your code ...
+      },
+      failure: function(error) {
+        console.error(error);
+      }
+    });
+
+
+### Include or exclude
+
+When loading a portfolio page for example its children (the projects) are included by default.
+You can prevent that bypassing the following option:
+
+    Paspartout.Page.load(page_id_or_permaname, {
+      include: {
+        children: false
+      },
+      
+      success...
+    });
+
+When loading a blog post the comments are not included.
+To include them:
+
+    Paspartout.Page.load(page_id_or_permaname, {
+      include: {
+        comments: true
+      },
+      
+      success...
+    });
+
+This also works when loading a blog page.
+the comments for every post will then be included.
+
+
+### Other options
+
+Other options are:
+
+- order _(the position order in which the records are loaded; options per record type are list below)_
+  - project: name, position, created_at, updated_at or random
+  - post: name, created_at, updated_at, published_at or random
+  - product: name, position, price, created_at, updated_at or random
+  - comment: name, created_at, updated_at or random
+  - image: title, position, color, created_at, updated_at or random
+- way _(the direction of the order; only asc and desc are possible)_
+- per_page _(the amount of records that are loaded; defaults to 30)_
+- page _(the page in pagination; for example if you have 40 projects and 30 per_page, project 32 will be on page 2)_
 
 
 ## Important
