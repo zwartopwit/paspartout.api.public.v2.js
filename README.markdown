@@ -198,15 +198,15 @@ the comments for every post will then be included.
 
 Other options are:
 
-- order: _(the position order in which the records are loaded; options per record type are list below)_
+- order: <i>(the position order in which the records are loaded; options per record type are list below)</i>
   - project: name, position, created_at, updated_at or random
   - post: name, created_at, updated_at, published_at or random
   - product: name, position, price, created_at, updated_at or random
   - comment: name, created_at, updated_at or random
   - image: title, position, color, created_at, updated_at or random
-- way: _(the direction of the order; only asc and desc are possible)_
-- per_page:  _(the amount of records that are loaded; defaults to 30 if no value found in the paspartout settings)_
-- page: _(the page in pagination; for example if you have 40 projects and 30 per_page, project 32 will be on page 2)_
+- way: <i>(the direction of the order; only asc and desc are possible)</i>
+- per_page:  <i>(the amount of records that are loaded; defaults to 30 if no value found in the paspartout settings)</i>
+- page: <i>(the page in pagination; for example if you have 40 projects and 30 per_page, project 32 will be on page 2)</i>
 
 
 ## Important
