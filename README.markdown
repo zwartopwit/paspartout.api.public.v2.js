@@ -1,4 +1,4 @@
-# paspartout.api.public.v1.js 0.0.2
+# paspartout.api.public.v1.js 0.0.3
 
 ## What is it?
 Official JavaScript wrapper for the Paspartout.com public API.
@@ -26,7 +26,7 @@ Note that the length of the key can vary from site to site.
 
 ### Load the Site
 
-    Paspartout.Site.load({
+    Paspartout.Api.Site.load({
       success: function(site) {
         ... your code ...
       },
@@ -50,7 +50,7 @@ The object passed as the first argument in the success callback the site object 
 
 ### Load a Page
 
-    Paspartout.Page.load(page_id_or_permaname, {
+    Paspartout.Api.Page.load(page_id_or_permaname, {
       success: function(page) {
         ... your code ...
       },
@@ -97,7 +97,7 @@ The field sets vary for each page type.
 
 ### Load Pages
 
-    Paspartout.Page.all({
+    Paspartout.Api.Page.all({
       success: function(pages) {
         ... your code ...
       },
@@ -111,7 +111,7 @@ The first argument in the success callback is an array with all active pages.
 
 ### Load Comments
 
-    Paspartout.Comment.all({
+    Paspartout.Api.Comment.all({
       success: function(comments) {
         ... your code ...
       },
@@ -124,7 +124,7 @@ The first argument in the success callback is an array with approved comments.
 
 Optionally you can provide the 'pageId' option to scope comments to a given page:
 
-    Paspartout.Comment.all({
+    Paspartout.Api.Comment.all({
       pageId: page_id_or_permaname,
       
       success: function(comments) {
@@ -140,7 +140,7 @@ By default a basic page object is included for each comment.
 
 ### Load Images
 
-    Paspartout.Image.all({
+    Paspartout.Api.Image.all({
       success: function(comments) {
         ... your code ...
       },
@@ -153,7 +153,7 @@ The first argument in the success callback is an array with images.
 
 Like comments you can optionally provide the 'pageId' option to scope images to a given page:
 
-    Paspartout.Comment.all({
+    Paspartout.Api.Image.all({
       pageId: page_id_or_permaname,
       
       success: function(comments) {
@@ -170,7 +170,7 @@ Like comments you can optionally provide the 'pageId' option to scope images to 
 When loading a portfolio page for example its children (the projects) are included by default.
 You can prevent that by passing the following option:
 
-    Paspartout.Page.load(page_id_or_permaname, {
+    Paspartout.Api.Page.load(page_id_or_permaname, {
       include: {
         children: false
       },
@@ -181,7 +181,7 @@ You can prevent that by passing the following option:
 When loading a blog post on the other hand, comments are not included.
 To include them:
 
-    Paspartout.Page.load(page_id_or_permaname, {
+    Paspartout.Api.Page.load(page_id_or_permaname, {
       include: {
         comments: true
       },
@@ -207,6 +207,11 @@ Other options are:
 - per_page:  <i>(the amount of records that are loaded; defaults to 30 if no value found in the paspartout settings)</i>
 - page: <i>(the page in pagination; for example if you have 40 projects and 30 per_page, project 32 will be on page 2)</i>
 
+Data you load will be cached.
+The second time you request the same url you will get the cached data returned.
+To get a fresh version of the url pass this option:
+
+- force
 
 ## Important
 

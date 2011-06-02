@@ -1,5 +1,5 @@
 /*
- * Paspartout.com public API wrapper for JavaScript 0.0.2
+ * Paspartout.com public API wrapper for JavaScript 0.0.3
  *
  * Copyright (c) 2011 Wout Fierens
  * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license
@@ -24,35 +24,25 @@ Paspartout.Api.Public = {
     source = Paspartout.config.url + '/' + Paspartout.config.siteId + o.path + '.js?variable=' + o.variable;
     
     if (typeof o.include === 'object') {
-      if (o.include.assets === true)
-        source += '&include_assets=1';
-      else if (o.include.assets === false)
-        source += '&include_assets=0';
-      
-      if (o.include.children === true)
-        source += '&include_children=1';
-      else if (o.include.children === false)
-        source += '&include_children=0';
-      
-      if (o.include.comments === true)
-        source += '&include_comments=1';
-      else if (o.include.comments === false)
-        source += '&include_comments=0';
+      for (var k in ['assets','children','comments']) {
+        if (o.include[k] === true)
+          source += '&include_' + k + '=1';
+        else if (o.include[k] === false)
+          source += '&include_' + k + '=0';
+      };
     }
     
-    if (typeof o.per_page === 'number')
-      source += '&per_page=' + o.per_page;
-      
-    if (typeof o.page === 'number')
-      source += '&page=' + o.page;
-    
+    for (var k in ['per_page','page'])
+      if (typeof o[k] === 'number')
+        source += '&' + k + '=' + o[k];
+
     if (typeof o.order === 'string') {
       source += '&order=' + o.order;
       if (typeof o.way === 'string')
         source += '&way=' + o.way;
     }
     
-    if (typeof Paspartout.Cache[source] === 'undefined' || o.force) {
+    if (typeof Paspartout.Api.Cache[source] === 'undefined' || o.force) {
       var s = document.createElement('script');
       document.getElementsByTagName('head')[0].appendChild(s);
       s.type = 'text/javascript';
@@ -67,7 +57,7 @@ Paspartout.Api.Public = {
               o.failure(data.error.code + ': ' + data.error.message);
           } else if (o.success) {
             o.success(data);
-            Paspartout.Cache[source] = data;
+            Paspartout.Api.Cache[source] = data;
           }
         } else if (o.failure) {
           o.failure('No data has been returned from the server!');
@@ -75,30 +65,26 @@ Paspartout.Api.Public = {
       };
       
     } else if (o.success) {
-      o.success(Paspartout.Cache[source]);
+      o.success(Paspartout.Api.Cache[source]);
     }
   }
 };
 
-Paspartout.Site = {
+Paspartout.Api.Site = {
   load: function(o) {
     o = o || {};
     o.path = '';
-    
-    if (typeof o.variable === 'undefined')
-      o.variable = 'PPSiteData';
+    o.variable = 'PPSiteData';
     
     Paspartout.Api.Public.load(o);
   }
 };
 
-Paspartout.Page = {
+Paspartout.Api.Page = {
   all: function(o) {
     o = o || {};
     o.path = '/pages';
-    
-    if (typeof o.variable === 'undefined')
-      o.variable = 'PPPagesData';
+    o.variable = 'PPPagesData';
     
     Paspartout.Api.Public.load(o);
   },
@@ -113,36 +99,30 @@ Paspartout.Page = {
     }
     
     o.path = '/pages/' + id;
-      
-    if (typeof o.variable === 'undefined')
-      o.variable = 'PPPageData';
+    o.variable = 'PPPage' + id.toString().replace(/-/g,'_') + 'Data';
     
     Paspartout.Api.Public.load(o);
   }
 };
 
-Paspartout.Comment = {
+Paspartout.Api.Comment = {
   all: function(o) {
     o = o || {};
     o.path = o.pageId ? '/pages/' + o.pageId + '/comments' : '/comments';
-    
-    if (typeof o.variable === 'undefined')
-      o.variable = 'PPCommentsData';
+    o.variable = 'PPCommentsData';
     
     Paspartout.Api.Public.load(o);
   }
 };
 
-Paspartout.Image = {
+Paspartout.Api.Image = {
   all: function(o) {
     o = o || {};
     o.path = o.pageId ? '/pages/' + o.pageId + '/images' : '/images';
-    
-    if (typeof o.variable === 'undefined')
-      o.variable = 'PPImagesData';
+    o.variable = 'PPImagesData';
     
     Paspartout.Api.Public.load(o);
   }
 };
 
-Paspartout.Cache = {};
+Paspartout.Api.Cache = {};
