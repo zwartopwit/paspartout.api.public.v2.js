@@ -1,4 +1,4 @@
-# paspartout.api.public.v1.js 0.0.3
+# paspartout.api.public.v1.js 0.0.4
 
 ## What is it?
 Official JavaScript wrapper for the Paspartout.com public API.
