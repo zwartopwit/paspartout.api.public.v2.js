@@ -1,5 +1,5 @@
 /*
- * Paspartout.com public API wrapper for JavaScript 0.0.5
+ * Paspartout.com public API wrapper for JavaScript 0.0.6
  *
  * Copyright (c) 2011 Wout Fierens
  * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license
@@ -14,9 +14,12 @@ var Paspartout = Paspartout || {
 };
 
 Paspartout.Api.Public = {
+  callback: {},
+  
   load: function(o) {
     var source, cacheKey, list,
-        start = new Date();
+        start   = new Date(),
+        callKey = 'pp' + start.valueOf();
     
     if (typeof Paspartout.config.siteId === 'undefined') {
       if (o.failure)
@@ -24,7 +27,7 @@ Paspartout.Api.Public = {
       return false;
     }
     
-    source = Paspartout.config.url + '/' + Paspartout.config.siteId + o.path + '.js?callback=Paspartout.Api.Public.onload';
+    source = Paspartout.config.url + '/' + Paspartout.config.siteId + o.path + '.js?callback=Paspartout.Api.Public.callback.' + callKey;
     
     if (typeof o.include === 'object') {
       list = ['assets','children','comments'];
@@ -47,19 +50,23 @@ Paspartout.Api.Public = {
         source += '&way=' + o.way;
     }
     
+    cacheKey = source.
+      toLowerCase().
+      replace(/\.pp[\d]+/, '').
+      replace(/:|\/|\.|\-|=|&|\?/g, '_').
+      replace(/_{2,}/, '_');
+    
     if (o.cache === false)
       source += '&random=' + Math.random();
     
-    cacheKey = source.toLowerCase().replace(/:|\/|\.|\-|=|&|\?/g, '_').replace(/_{2,}/, '_');
-    
     if (typeof Paspartout.Api.Cache[cacheKey] === 'undefined' || o.cache === false) {
-      var load, s = document.createElement('script');
+      var s = document.createElement('script');
       document.getElementsByTagName('head')[0].appendChild(s);
       s.type  = 'text/javascript';
       s.async = true;
       s.src   = source;
       
-      this.onload = function(data) {
+      this.callback[callKey] = function(data) {
         if (typeof data === 'object') {
           if (data.error) {
             if (o.failure)
