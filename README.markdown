@@ -1,4 +1,4 @@
-# paspartout.api.public.v1.js 0.0.4
+# paspartout.api.public.v1.js 0.0.5
 
 ## What is it?
 Official JavaScript wrapper for the Paspartout.com public API.
@@ -211,7 +211,7 @@ Data you load will be cached.
 The second time you request the same url you will get the cached data returned.
 To get a fresh version of the url pass this option:
 
-- force
+- cache: false <i>(false will prevent caching and force the data to be reloaded)</i>
 
 ## Important
 
