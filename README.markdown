@@ -221,6 +221,11 @@ As the API evolves this library will be updated as well.
 This library is framework agnostic.
 If any problems arise, please let me know.
 
+## Testing
+
+The included specs test the basic functionality.
+Tests are performed against a Paspartout Biz test site (http://gmc.paspartout.com/).
+
 
 ## Contributing
 
@@ -229,6 +234,7 @@ If any problems arise, please let me know.
 * Fork the project
 * Start a feature/bugfix branch
 * Commit and push until you are happy with your contribution
+* Make sure to add tests for it. This is important so I don’t break it in a future version unintentionally.
 
 
 ## Copyright
