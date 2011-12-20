@@ -1,5 +1,5 @@
 /*
- * Paspartout.com public API wrapper for JavaScript 0.0.6
+ * Paspartout.com public API wrapper for JavaScript 0.0.7
  *
  * Copyright (c) 2011 Wout Fierens
  * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license
@@ -8,7 +8,7 @@ var Paspartout = Paspartout || {
   Api:    {},
   config: {
     url: (function() {
-      return (document.location.protocol == 'https:' ? 'https://secure' : 'http://api') + '.paspartout.com/public/v1';
+      return (document.location.protocol == 'https:' ? 'https://secure' : 'http://api') + '.paspartout.com/public/v2';
     })()
   }
 };

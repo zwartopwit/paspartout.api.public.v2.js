@@ -1,4 +1,4 @@
-# paspartout.api.public.v1.js 0.0.6
+# paspartout.api.public.v2.js 0.0.7
 
 ## What is it?
 Official JavaScript wrapper for the Paspartout.com public API.
@@ -12,7 +12,7 @@ Developers or Paspartout site owners who want to create widgets, use public Pasp
 
 Include the file in your page:
 
-    <script src="paspartout.api.public.v1.js" type="text/javascript"></script>
+    <script src="paspartout.api.public.v2.js" type="text/javascript"></script>
 
 ### Configuration
 
@@ -20,7 +20,7 @@ Before you perform any Paspartout related action define the site api id of the s
 
     Paspartout.config.siteId = 'ppt-123456789';
 
-The site api id can be found under 'settings' > 'advanced'.
+The site api id can be found under 'settings' > 'Paspartout API'.
 Note that the length of the key can vary from site to site.
 
 
@@ -70,7 +70,6 @@ The object passed as the first argument in the success callback the page object 
 - created_at
 - updated_at
 - body
-- body_position
 - published_at
 - allow_comments
 - number_of_comments
