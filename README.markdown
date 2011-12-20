@@ -37,15 +37,15 @@ Note that the length of the key can vary from site to site.
 
 The object passed as the first argument in the success callback the site object including the following fields:
 
-- title <small>_(meta title)_</small>
-- description <small>_(meta description)_</small>
-- subdomain <small>_(e.g. subdomain.paspartout.com)_</small>
+- title _(meta title)_
+- description _(meta description)_
+- subdomain _(e.g. subdomain.paspartout.com)_
 - host
 - url
-- icon <small>_(the site icon in all available sizes: apple_touch_icon, favicon, original)_</small>
-- page <small>_(the homepage, including its children in case of a portfolio, lookbook, blog, news or shop page)_</small>
-- menu <small>_(array with pages and their basic fields: description, id, name, permaname, short_url, title, type, url)_</small>
-- footer <small>_(full Paspartout footer info)_</small>
+- icon _(the site icon in all available sizes: apple_touch_icon, favicon, original)_
+- page _(the homepage, including its children in case of a portfolio, lookbook, blog, news or shop page)_
+- menu _(array with pages and their basic fields: description, id, name, permaname, short_url, title, type, url)_
+- footer _(full Paspartout footer info)_
 
 
 ### Load a Page
@@ -64,31 +64,31 @@ The object passed as the first argument in the success callback the page object 
 - type
 - id
 - name
-- permaname <small>_(except for external page or a blog that is used externally)_</small>
+- permaname _(except for external page or a blog that is used externally)_
 - url
-- target <small>_(only for external page or a blog that is used externally)_</small>
-- short_url <small>_(except for external page or a blog that is used externally)_</small>
+- target _(only for external page or a blog that is used externally)_
+- short_url _(except for external page or a blog that is used externally)_
 - created_at
 - updated_at
-- body <small>_(only project or product; about, sheet and post have their body in one or more blocks)_</small>
+- body _(only project or product; about, sheet and post have their body in one or more blocks)_
 - published_at 
-- allow_comments <small>_(only for post)_</small>
-- number_of_comments <small>_(only for post)_</small>
-- categories <small>_(project, product and post)_</small>
-- keywords <small>_(project, product and post)_</small>
-- comments <small>_(only for post)_</small>
-- blocks <small>_(about, sheet and post)_</small>
-- children <small>_(portfolio, lookbook, blog, news and shop)_</small>
-- price <small>_(only for product)_</small>
-- big_shipment <small>_(only for product)_</small>
-- sold <small>_(only for product)_</small>
-- promotion_id <small>_(only for product)_</small>
-- thumb <small>_(project and product)_</small>
-- collections <small>_(only for product)_</small>
-- genders <small>_(only for product)_</small>
-- materials <small>_(only for product)_</small>
-- variations <small>_(only for product)_</small>
-- images <small>_(only for product)_</small>
+- allow_comments _(only for post)_
+- number_of_comments _(only for post)_
+- categories _(project, product and post)_
+- keywords _(project, product and post)_
+- comments _(only for post)_
+- blocks _(about, sheet and post)_
+- children _(portfolio, lookbook, blog, news and shop)_
+- price _(only for product)_
+- big_shipment _(only for product)_
+- sold _(only for product)_
+- promotion_id _(only for product)_
+- thumb _(project and product)_
+- collections _(only for product)_
+- genders _(only for product)_
+- materials _(only for product)_
+- variations _(only for product)_
+- images _(only for product)_
 
 The field sets vary for each page type.
 
