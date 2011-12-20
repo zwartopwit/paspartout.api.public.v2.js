@@ -64,32 +64,31 @@ The object passed as the first argument in the success callback the page object 
 - type
 - id
 - name
-- permaname
+- permaname __(except for external page or a blog that is used externally)__
 - url
-- short_url
+- target __(only for external page or a blog that is used externally)__
+- short_url __(except for external page or a blog that is used externally)__
 - created_at
 - updated_at
-- body
-- published_at
-- allow_comments
-- number_of_comments
-- categories
-- keywords
-- comments
-- blocks
-- children
-- price
-- big_shipment
-- sold
-- promotion_id
-- thumb
-- categories
-- collections
-- genders
-- materials
-- keywords
-- variations
-- images
+- body __(only project or product; about, sheet and post have their body in one or more blocks)__
+- published_at 
+- allow_comments __(only for post)__
+- number_of_comments __(only for post)__
+- categories __(project, product and post)__
+- keywords __(project, product and post)__
+- comments __(only for post)__
+- blocks __(about, sheet and post)__
+- children __(portfolio, lookbook, blog, news and shop)__
+- price __(only for product)__
+- big_shipment __(only for product)__
+- sold __(only for product)__
+- promotion_id __(only for product)__
+- thumb __(project and product)__
+- collections __(only for product)__
+- genders __(only for product)__
+- materials __(only for product)__
+- variations __(only for product)__
+- images __(only for product)__
 
 The field sets vary for each page type.
 
